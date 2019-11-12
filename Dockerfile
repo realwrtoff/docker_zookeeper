@@ -7,7 +7,8 @@ LABEL name="zookeeper" version=$VERSION
 
 RUN apk add --no-cache wget bash \
     && mkdir -p /opt/zookeeper \
-    && wget -q -O - $MIRROR/zookeeper/zookeeper-$VERSION/zookeeper-$VERSION.tar.gz|tar -xzC /opt/zookeeper --strip-components=1 \
+    && wget -q -O - $MIRROR/zookeeper/zookeeper-$VERSION/apache-zookeeper-$VERSION.tar.gz \
+      | tar -xzC /opt/zookeeper --strip-components=1 \
     && cp /opt/zookeeper/conf/zoo_sample.cfg /opt/zookeeper/conf/zoo.cfg \
     && mkdir -p /tmp/zookeeper
 
